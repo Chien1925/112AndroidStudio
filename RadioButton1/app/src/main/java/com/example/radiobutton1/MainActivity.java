@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 //                        OutputStr+="全票\n";
 //                        break;
 //                    case R.id.rdbChild:
-//                       OutputStr+="兒童票\n";
-//                       break;
-//                  case R.id.rdbStudent:
+//                        OutputStr+="兒童票\n";
+//                        break;
+//                    case R.id.rdbStudent:
 //                        OutputStr+="學生票\n";
 //                        break;
 //               }
