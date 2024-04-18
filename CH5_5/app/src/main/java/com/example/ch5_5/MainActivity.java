@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 txvOutput.setTextColor(Color.GREEN);
                 break;
             case MotionEvent.ACTION_MOVE:
-                txvOutput.setText("ACTION_MOVE");
+                float x = Event.getX();
+                float y = Event.getY();
+                txvOutput.setText("X = "+x+"\nY = "+y);
                 txvOutput.setTextColor(Color.BLUE);
                 break;
         }
