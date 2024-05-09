@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public abstract class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText opd1,opd2;
     private TextView output;
@@ -47,15 +47,17 @@ public abstract class MainActivity extends AppCompatActivity implements AdapterV
                     r=V1*V2;
                     break;
                 case 3:
+                    if(V2==0){
+                        throw new ArithmeticException();
+                    }
                     r=(double) V1/V2;
                     break;
-
             }
-            output.setText("運算結果="+ String.format("%2f",r))  ;
-        } catch(NumberFormatException e){
-        output.setText("請輸入數字");
-        return;
-    }catch (ArithmeticException e){
+            output.setText("運算結果="+ String.format("%2f",r));
+        }catch(NumberFormatException e){
+            output.setText("請輸入數字");
+            return;
+        }catch (ArithmeticException e){
             output.setText("除數不可為0");
             return;
         }
