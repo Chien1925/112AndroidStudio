@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
             case 2 :
                 btnColor.setBackgroundColor(Color.GREEN);
                 break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                Toast.makeText(this,"按下取消紐",Toast.LENGTH_SHORT).show();
+                break;
         }
 
     }
