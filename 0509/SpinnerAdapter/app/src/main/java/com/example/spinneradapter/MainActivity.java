@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         spCourses.setAdapter(adpCourses);
         spDesserts.setAdapter(adpDesserts);
 
-        Button btnConfirm=(Button) findViewById(R.id.button);
+        Button btnConfirm=(Button) findViewById(R.id.btnConfirm);
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,5 +39,16 @@ public class MainActivity extends AppCompatActivity {
                 output.setText("主餐："+courses+"\n甜點："+desserts);
             }
         });
+
+        Button btnModify =(Button) findViewById(R.id.btnModify);
+        btnModify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                desserts[4]="草莓蛋糕";
+                adpDesserts.notifyDataSetChanged();
+            }
+        });
     }
+
+
 }
