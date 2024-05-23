@@ -15,7 +15,8 @@ import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class MainActivity extends AppCompatActivity {
+//public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     private TextView txvOutput;
     private Calendar dt=Calendar.getInstance();
@@ -29,7 +30,12 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dlg=(new DatePickerDialog(MainActivity.this,null,
+                DatePickerDialog dlg=(new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        txvOutput.setText("日期："+year+"/"+(month+1)+"/"+dayOfMonth);
+                    }
+                },
                         dt.get(Calendar.YEAR),
                         dt.get(Calendar.MONTH),
                         dt.get(Calendar.DAY_OF_MONTH)));
@@ -56,10 +62,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         });
     }
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        txvOutput.setText("日期："+year+"/"+(month+1)+"/"+dayOfMonth);
-    }
+//    @Override
+//    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//        txvOutput.setText("日期："+year+"/"+(month+1)+"/"+dayOfMonth);
+//    }
 }
 
 
