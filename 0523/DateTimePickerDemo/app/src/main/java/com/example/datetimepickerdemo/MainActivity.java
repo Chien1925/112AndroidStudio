@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 DatePickerDialog dlg=(new DatePickerDialog(MainActivity.this,null,
                         dt.get(Calendar.YEAR),
                         dt.get(Calendar.MONTH),
-                        dt.get(Calendar.DAY_OF_MONTH));
+                        dt.get(Calendar.DAY_OF_MONTH)));
                 dlg.show();
             }
         });
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                             }
                         },
                         dt.get(Calendar.HOUR),
-                        dt.get(Calendar.MINUTE),false);
+                        dt.get(Calendar.MINUTE),false));
                 dlg.show();
             }
 
