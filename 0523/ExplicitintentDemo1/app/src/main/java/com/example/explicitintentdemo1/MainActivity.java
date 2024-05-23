@@ -21,9 +21,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText txtC=(EditText) findViewById(R.id.txtC);
+                int tempC=Integer.parseInt(txtC.getText().toString());
+                EditText edtPlace=(EditText)findViewById(R.id.edtPlace);
                 Intent intent=new Intent(MainActivity.this,FActivity.class);
                 Bundle bundle=new Bundle();
-                bundle.putString("TEMPC",txtC.getText().toString());
+                bundle.putInt("TEMPC",tempC);
+                bundle.putString("PALACE",edtPlace.getText().toString());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
