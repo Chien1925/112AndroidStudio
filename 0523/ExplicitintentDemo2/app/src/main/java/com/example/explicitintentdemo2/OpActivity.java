@@ -24,13 +24,13 @@ public class OpActivity extends AppCompatActivity {
                 double result = 0.0;
                 RadioButton rdbAdd, rdbSubtract, rdbMultiply, rdbDivide;
                 CheckBox chkDivide;
-// 取得傳遞的資料
+                // 取得傳遞的資料
                 Bundle bundle = OpActivity.this.getIntent().getExtras();
                 if (bundle == null) return;
-// 取得運算元
+                // 取得運算元
                 opd1 = Integer.parseInt(bundle.getString("OPERAND01"));
                 opd2 = Integer.parseInt(bundle.getString("OPERAND02"));
-// 取得選取的運算子
+                // 取得選取的運算子
                 rdbAdd = (RadioButton) findViewById(R.id.rdbAdd);
                 if (rdbAdd.isChecked()) {
                     result = opd1 + opd2; // 加
@@ -52,7 +52,7 @@ public class OpActivity extends AppCompatActivity {
                         result = opd1 / (double) opd2;
                 }
                 Intent rIntent = new Intent();
-// 建立傳回值
+                // 建立傳回值
                 Bundle rbundle = new Bundle();
                 rbundle.putDouble("RESULT", result);
                 rIntent.putExtras(rbundle); // 加上資料
