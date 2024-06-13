@@ -33,22 +33,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txvShow.setTextSize(36);
 
         if (v.getId() == R.id.btnCount) {
-            double height = Double.parseDouble((edtHeight.getText().toString()));
-            double weight = Double.parseDouble((edtWeight.getText().toString()));
-            
-            if (height == 0 || weight == 0) {
-                txvShow.setTextColor(Color.RED);
-                txvShow.setText("錯誤");
-            } else {
-                double bmi = weight / Math.pow(height / 100.0, 2);
-                if (bmi >= 24)
-                    txvShow.setTextColor(Color.RED);
-                else if (bmi < 18.5)
-                    txvShow.setTextColor(Color.BLUE);
-                else
-                    txvShow.setTextColor(Color.GREEN);
+            String heightStr = edtHeight.getText().toString();
+            String weightStr = edtWeight.getText().toString();
 
-                txvShow.setText(String.format("%.2f", bmi));
+            if (heightStr.isEmpty() || weightStr.isEmpty()) {
+                txvShow.setTextColor(Color.RED);
+                txvShow.setText("錯誤A");
+            } else {
+                double height = Double.parseDouble(heightStr);
+                double weight = Double.parseDouble(weightStr);
+                
+                if (height == 0 || weight == 0) {
+                    txvShow.setTextColor(Color.RED);
+                    txvShow.setText("錯誤");
+                } else {
+                    double bmi = weight / Math.pow(height / 100.0, 2);
+                    if (bmi >= 24)
+                        txvShow.setTextColor(Color.RED);
+                    else if (bmi < 18.5)
+                        txvShow.setTextColor(Color.BLUE);
+                    else
+                        txvShow.setTextColor(Color.GREEN);
+
+                    txvShow.setText(String.format("%.2f", bmi));
+                }
             }
         } else {
             edtWeight.setText("0");
